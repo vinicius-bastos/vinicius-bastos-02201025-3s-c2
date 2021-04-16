@@ -27,13 +27,24 @@ public class LutadorController {
 
     @GetMapping
     public ResponseEntity getLutadores(){
-        return ResponseEntity.status(200).body(repository.findAll());
+        return ResponseEntity.status(200).body(repository.findAllForca());
     }
 
 
-//    @GetMapping("/contagem-vivos")
-//    public ResponseEntity getLutadorVivo(){
-//        return ResponseEntity.of(repository.findById());
+    @GetMapping("/contagem-vivos")
+    public ResponseEntity getLutadorVivo(){
+        return ResponseEntity.status(200).body(repository.countAllByVivoTrue());
+    }
+
+    @GetMapping("/contagem-mortos")
+    public ResponseEntity getLutadorMorto(){
+        return ResponseEntity.status(200).body(repository.countAllByVivoFalse());
+    }
+
+
+//    @PostMapping("/{id}/concentrar")
+//    public ResponseEntity postLutadores(PathVariable Integer id){
+//        return ResponseEntity.status(200).body(repository.countAllByVivoTrue());
 //    }
 
 }

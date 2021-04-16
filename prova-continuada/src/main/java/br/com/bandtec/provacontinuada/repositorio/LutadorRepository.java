@@ -15,6 +15,14 @@ public interface LutadorRepository  extends JpaRepository<Lutador, Integer> {
 //    List<Lutador> findAllForca();
 //
 
+    @Query("select f from Lutador f order by forca_golpe DESC") //
+    List<Lutador> findAllForca();
+
+
+    Integer countAllByVivoTrue();
+
+    Integer countAllByVivoFalse();
+
 
 
 }
